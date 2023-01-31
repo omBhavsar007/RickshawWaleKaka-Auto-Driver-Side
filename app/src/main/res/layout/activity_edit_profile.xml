@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfile"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="408dp"
+        android:layout_height="85dp"
+        android:background="@color/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="411dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/wave2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/uploadphoto"
+            android:layout_width="111dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_baseline_add_a_photo_24"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:text="Upload Photo"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.923"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.597" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="120dp"
+            android:layout_height="48dp"
+            android:background="@drawable/round_bg"
+            android:backgroundTint="#FFE500"
+            android:text="Add Photo"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.951"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.834" />
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="354dp"
+            android:layout_height="48dp"
+            android:background="@drawable/round_borders"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:drawablePadding="14dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textEmailAddress"
+            android:padding="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.308" />
+
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="354dp"
+            android:layout_height="48dp"
+            android:background="@drawable/round_borders"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="14dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.396" />
+
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="217dp"
+            android:layout_height="51dp"
+            android:background="@drawable/round_borders"
+            android:drawableStart="@drawable/ic_baseline_phone_android_24"
+            android:drawablePadding="14dp"
+            android:ems="10"
+            android:hint="Phone No"
+            android:inputType="phone"
+            android:padding="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+        android:id="@+id/textView3"
+        android:layout_width="275dp"
+        android:layout_height="136dp"
+        android:text="GET STARTED!! REGISTER AS DRIVER"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027" />
+
+    <ImageView
+        android:id="@+id/driverPhoto"
+        android:layout_width="152dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:srcCompat="@drawable/rickshaw" />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="257dp"
+            android:layout_height="48dp"
+            android:background="@drawable/round_bg"
+            android:text="UPDATE PROFILE"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.937" />
+
+        <EditText
+            android:id="@+id/Age"
+            android:layout_width="125dp"
+            android:layout_height="51dp"
+            android:background="@drawable/round_borders"
+            android:drawableStart="@drawable/ic_baseline_cake_24"
+            android:drawablePadding="14dp"
+            android:ems="10"
+            android:hint="Age"
+            android:inputType="number"
+            android:padding="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.944"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="118dp"
+            android:layout_height="86dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.945"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733"
+            app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="173dp"
+            android:layout_height="146dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.126"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.793">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="153dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_borders"
+                android:drawableStart="@drawable/ic_baseline_male_24"
+                android:drawablePadding="10dp"
+                android:padding="1dp"
+                android:text="Male" />
+
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="151dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_borders"
+                android:drawableStart="@drawable/ic_baseline_female_24"
+                android:drawablePadding="10dp"
+                android:padding="1dp"
+                android:text="Female" />
+
+
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_borders"
+                android:drawableStart="@drawable/ic_baseline_transgender_24"
+                android:drawablePadding="10dp"
+                android:padding="1dp"
+                android:text="Other" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender :"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.592" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
