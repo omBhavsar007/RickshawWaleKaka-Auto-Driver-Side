@@ -42,6 +42,7 @@ public class EditProfile extends AppCompatActivity {
     RadioButton other;
     String a;
     EditText Name;
+    String[] items = {"English", "Hindi", "Marathi"};
     EditText e_mail;
     EditText phone;
     EditText age;
@@ -56,11 +57,12 @@ public class EditProfile extends AppCompatActivity {
     String mobno;
     ProgressDialog progressDialog;
     String name;
-    ArrayAdapter<String> adapterItems;
+    ArrayAdapter<String> adapterState,adapterDistirct,adpaterTaluka;
 
     AutoCompleteTextView autoState,autoDistrict,autoTaluka;
     String[] state = {"Maharashtra","Gujarat","Karnataka"};
-
+    String[] district = {"Nashik","Pune","Mumbai","Dhule"};
+    String[] taluka = {"Dhule City","Shirpur","Sakri","Shinkheda"};
 
     @Override
     public void onBackPressed() {
@@ -69,6 +71,7 @@ public class EditProfile extends AppCompatActivity {
         finish();
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +87,10 @@ public class EditProfile extends AppCompatActivity {
         btn1 = (Button) findViewById(R.id.button);
         uploadPhoto = (TextView) findViewById(R.id.uploadphoto);
 
+        autoTaluka = findViewById(R.id.taluka);
+        autoDistrict = findViewById(R.id.district);
+        autoState = findViewById(R.id.state);
+
         male = (RadioButton) findViewById(R.id.male);
         female = (RadioButton) findViewById(R.id.female);
         other = (RadioButton) findViewById(R.id.other);
@@ -92,6 +99,37 @@ public class EditProfile extends AppCompatActivity {
 
         db = FirebaseDatabase.getInstance().getReference().child("Demo1");
         sr = FirebaseStorage.getInstance().getReference("DriverProfilePhotos").child(mobno);
+
+        adapterDistirct = new ArrayAdapter<String>(this,R.layout.list_main,district);
+        adpaterTaluka = new ArrayAdapter<String>(this,R.layout.list_main,taluka);
+        adapterState = new ArrayAdapter<String>(this,R.layout.list_main,state);
+
+        autoState.setAdapter(adapterState);
+        autoTaluka.setAdapter(adpaterTaluka);
+        autoDistrict.setAdapter(adapterDistirct);
+
+
+
+        autoState.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(parent.getItemAtPosition(position).toString());
+            }
+        });
+
+        autoTaluka.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(parent.getItemAtPosition(position).toString());
+            }
+        });
+
+        autoDistrict.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(parent.getItemAtPosition(position).toString());
+            }
+        });
 
         db.child(mobno).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
