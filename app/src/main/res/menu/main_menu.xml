@@ -8,6 +8,7 @@
         <item android:id="@+id/nav_add_vehicle_details" android:title="Add Vehicle Details" android:icon="@drawable/ic_baseline_directions_car_24"/>
         <item android:id="@+id/nav_add_verification_details" android:title="Add Verification Details" android:icon="@drawable/ic_baseline_credit_card_24"/>
         <item android:id="@+id/nav_add_area" android:title="Add Areas" android:icon="@drawable/ic_baseline_place_24"/>
+        <item android:id="@+id/nav_edit_info" android:title="Edit Infromation" android:icon="@drawable/ic_baseline_place_24"/>
         <item android:id="@+id/nav_logout" android:title="Logout" android:icon="@drawable/ic_baseline_login_24"/>
     </group>
 

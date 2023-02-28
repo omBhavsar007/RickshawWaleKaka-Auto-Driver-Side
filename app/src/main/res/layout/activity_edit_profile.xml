@@ -89,7 +89,7 @@
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.173" />
+            app:layout_constraintVertical_bias="0.164" />
 
         <EditText
             android:id="@+id/Email"
@@ -107,7 +107,7 @@
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
+            app:layout_constraintVertical_bias="0.214" />
 
         <EditText
             android:id="@+id/Phone"
@@ -122,10 +122,10 @@
             android:padding="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintHorizontal_bias="0.041"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.281" />
+            app:layout_constraintVertical_bias="0.264" />
 
         <TextView
             android:id="@+id/textView3"
@@ -142,17 +142,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.023" />
 
-        <ImageView
-        android:id="@+id/driverPhoto"
-        android:layout_width="152dp"
-        android:layout_height="136dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view3"
-        app:srcCompat="@drawable/rickshaw" />
 
+        <ImageView
+            android:id="@+id/driverPhoto"
+            android:layout_width="118dp"
+            android:layout_height="139dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view3"
+            app:srcCompat="@drawable/rickshaw" />
 
         <EditText
             android:id="@+id/Age"
@@ -167,10 +167,10 @@
             android:padding="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.912"
+            app:layout_constraintHorizontal_bias="0.989"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.281" />
+            app:layout_constraintVertical_bias="0.264" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -243,8 +243,8 @@
             app:layout_constraintVertical_bias="0.339" />
 
         <LinearLayout
-            android:layout_width="375dp"
-            android:layout_height="581dp"
+            android:layout_width="368dp"
+            android:layout_height="652dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -252,12 +252,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17">
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.631"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
+
+                <AutoCompleteTextView
+                    android:id="@+id/state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/round_borders"
+                    android:drawablePadding="14dp"
+                    android:editable="false"
+                    android:padding="14dp"
+                    android:text="State"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout6"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_margin="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.631"
                 app:layout_constraintStart_toStartOf="parent"
@@ -268,11 +295,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawablePadding="14dp"
-                    android:editable="false"
-                    android:text="Taluka"
                     android:background="@drawable/round_borders"
+                    android:drawablePadding="14dp"
+
+                    android:editable="false"
                     android:padding="14dp"
+                    android:text="Distirct"
                     tools:ignore="TouchTargetSizeCheck" />
 
 
@@ -283,7 +311,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="24dp"
+                android:layout_margin="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.631"
                 app:layout_constraintStart_toStartOf="parent"
@@ -293,47 +321,24 @@
                     android:id="@+id/district"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="District"
-                    android:editable="false"
-                    android:background="@drawable/round_borders"
                     android:layout_weight="1"
+                    android:background="@drawable/round_borders"
                     android:drawablePadding="14dp"
+
+                    android:editable="false"
                     android:padding="14dp"
+                    android:text="City"
                     tools:ignore="TouchTargetSizeCheck" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.631"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
-
-                <AutoCompleteTextView
-                    android:id="@+id/state"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="State"
-                    android:editable="false"
-                    android:background="@drawable/round_borders"
-                    android:layout_weight="1"
-                    android:drawablePadding="14dp"
-                    android:padding="14dp"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
+                android:id="@+id/pinc"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_margin="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_borders"
                 android:drawablePadding="14dp"
@@ -343,9 +348,10 @@
                 android:padding="14dp" />
 
             <EditText
+                android:id="@+id/house"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/round_borders"
                 android:drawablePadding="14dp"
                 android:ems="10"
@@ -354,20 +360,23 @@
                 android:padding="14dp" />
 
             <EditText
+                android:id="@+id/society"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
+
+                android:layout_margin="10dp"
                 android:background="@drawable/round_borders"
                 android:drawablePadding="14dp"
                 android:ems="10"
-
                 android:hint="Society/Area"
                 android:inputType="textEmailAddress"
                 android:padding="14dp" />
 
             <EditText
+                android:id="@+id/street"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_margin="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_borders"
                 android:drawablePadding="14dp"

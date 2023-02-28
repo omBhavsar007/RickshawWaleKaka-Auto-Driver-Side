@@ -108,7 +108,7 @@ public class HomePage extends AppCompatActivity {
                 else
                 {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        navigationView.getMenu().getItem(0).setTitle("please add age,gender,Photo");
+                        navigationView.getMenu().getItem(0).setTitle("please add age,gender,Photo,address");
                         txtRem.setText("PLEASE ADD All THE INFORMATION IN MENU");
                     }
 
@@ -129,14 +129,13 @@ public class HomePage extends AppCompatActivity {
                 else
                 {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        navigationView.getMenu().getItem(0).setTitle("please add age,gender,Photo");
+                        navigationView.getMenu().getItem(0).setTitle("please add age,gender,Photo,address");
                         txtRem.setText("PLEASE ADD All THE INFORMATION IN MENU");
                     }
 
                 }
             }
         });
-
 
         db.child(mobno).child("ProfilePhoto").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -152,10 +151,30 @@ public class HomePage extends AppCompatActivity {
                 else
                 {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        navigationView.getMenu().getItem(0).setTitle("please add age,gender,Photo");
+                        navigationView.getMenu().getItem(0).setTitle("please add age,gender,Photo,address");
                         txtRem.setText("PLEASE ADD All THE INFORMATION IN MENU");
                     }
 
+                }
+            }
+        });
+
+        db.child(mobno).child("address").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.getResult().exists())
+                {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        navigationView.getMenu().getItem(0).setTitle("Edit Profile");
+                        flag++;
+                    }
+                }
+                else
+                {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        navigationView.getMenu().getItem(0).setTitle("please add address");
+                        txtRem.setText("PLEASE ADD All THE INFORMATION IN MENU");
+                    }
                 }
             }
         });
@@ -215,7 +234,7 @@ public class HomePage extends AppCompatActivity {
                         navigationView.getMenu().getItem(2).setTitle("Add Vehicle Details");
                         flag++;
                         System.out.println(flag);
-                        if(flag == 6)
+                        if(flag == 7)
                         {
                             txtRem.setVisibility(View.INVISIBLE);
                         }
@@ -236,27 +255,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        db.child(mobno).child("Schools").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren())
-                {
-                    if(dataSnapshot.child("Areas").exists())
-                    {
 
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
 
 
@@ -285,7 +284,7 @@ public class HomePage extends AppCompatActivity {
                 }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    navigationView.getMenu().getItem(6).getSubMenu().getItem(0).setTitle("Requests("+rlist.size()+")");
+                    navigationView.getMenu().getItem(7).getSubMenu().getItem(0).setTitle("Requests("+rlist.size()+")");
                 }
             }
 
@@ -370,6 +369,13 @@ public class HomePage extends AppCompatActivity {
                         Log.i("MENU_DRAWER_TAG","Logout is Clicked");
                         drawerLayout.closeDrawer(GravityCompat.START);
                         startActivity(new Intent(HomePage.this,AddArea.class).putExtra("mobno",mobno));
+                        finish();
+                        break;
+
+                    case R.id.nav_edit_info:
+                        Log.i("MENU_DRAWER_TAG","Logout is Clicked");
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        startActivity(new Intent(HomePage.this,EditInformation.class).putExtra("mobno",mobno));
                         finish();
                         break;
 

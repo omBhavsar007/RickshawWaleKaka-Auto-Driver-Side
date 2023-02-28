@@ -185,6 +185,7 @@ public class ShowRequests extends AppCompatActivity {
                     String sname = requests.getSchoolname();
                     String pno = requests.getParentno();
                     System.out.println(mobno);
+
                     dbc.child(mobno).child("Schools").child(sname).child("Childs").child(id).setValue("").addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

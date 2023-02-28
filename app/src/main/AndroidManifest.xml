@@ -15,6 +15,13 @@
         android:theme="@style/Theme.Mark1"
         tools:targetApi="31">
         <activity
+            android:name=".EditInformation"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ViewDetails"
             android:exported="false">
             <meta-data

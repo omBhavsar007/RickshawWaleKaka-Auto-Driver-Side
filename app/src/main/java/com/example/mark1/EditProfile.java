@@ -45,7 +45,7 @@ public class EditProfile extends AppCompatActivity {
     String[] items = {"English", "Hindi", "Marathi"};
     EditText e_mail;
     EditText phone;
-    EditText age;
+    EditText age,pincode,house,society,area;
     Button btn1;
     Button btn2;
     DatabaseReference db;
@@ -57,9 +57,10 @@ public class EditProfile extends AppCompatActivity {
     String mobno;
     ProgressDialog progressDialog;
     String name;
-    ArrayAdapter<String> adapterState,adapterDistirct,adpaterTaluka;
+    ArrayAdapter<String> adapterState,adapterDistirct,adpaterCity;
+    String city,dist,state1;
 
-    AutoCompleteTextView autoState,autoDistrict,autoTaluka;
+    AutoCompleteTextView autoState,autoDistrict,autoCity;
     String[] state = {"Maharashtra","Gujarat","Karnataka"};
     String[] district = {"Nashik","Pune","Mumbai","Dhule"};
     String[] taluka = {"Dhule City","Shirpur","Sakri","Shinkheda"};
@@ -87,47 +88,51 @@ public class EditProfile extends AppCompatActivity {
         btn1 = (Button) findViewById(R.id.button);
         uploadPhoto = (TextView) findViewById(R.id.uploadphoto);
 
-        autoTaluka = findViewById(R.id.taluka);
-        autoDistrict = findViewById(R.id.district);
+        autoDistrict = findViewById(R.id.taluka);
+        autoCity = findViewById(R.id.district);
         autoState = findViewById(R.id.state);
 
         male = (RadioButton) findViewById(R.id.male);
         female = (RadioButton) findViewById(R.id.female);
         other = (RadioButton) findViewById(R.id.other);
         autoD = (ImageView) findViewById(R.id.imageView2);
+
+        pincode = findViewById(R.id.pinc);
+        house = findViewById(R.id.house);
+        society = findViewById(R.id.society);
+        area = findViewById(R.id.street);
+
         mobno = getIntent().getStringExtra("mobno");
 
         db = FirebaseDatabase.getInstance().getReference().child("Demo1");
         sr = FirebaseStorage.getInstance().getReference("DriverProfilePhotos").child(mobno);
 
         adapterDistirct = new ArrayAdapter<String>(this,R.layout.list_main,district);
-        adpaterTaluka = new ArrayAdapter<String>(this,R.layout.list_main,taluka);
+        adpaterCity = new ArrayAdapter<String>(this,R.layout.list_main,taluka);
         adapterState = new ArrayAdapter<String>(this,R.layout.list_main,state);
 
         autoState.setAdapter(adapterState);
-        autoTaluka.setAdapter(adpaterTaluka);
+        autoCity.setAdapter(adpaterCity);
         autoDistrict.setAdapter(adapterDistirct);
-
-
 
         autoState.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(parent.getItemAtPosition(position).toString());
+                state1 = parent.getItemAtPosition(position).toString();
             }
         });
 
-        autoTaluka.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        autoCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(parent.getItemAtPosition(position).toString());
+                city = parent.getItemAtPosition(position).toString();
             }
         });
 
         autoDistrict.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(parent.getItemAtPosition(position).toString());
+                dist = parent.getItemAtPosition(position).toString();
             }
         });
 
@@ -148,8 +153,6 @@ public class EditProfile extends AppCompatActivity {
                 }
             }
         });
-
-
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,6 +179,10 @@ public class EditProfile extends AppCompatActivity {
     private void editProfile()
     {
         String age1 = age.getText().toString();
+        String houseno = house.getText().toString();
+        String pinc = pincode.getText().toString();
+        String soci = society.getText().toString();
+        String st = area.getText().toString();
 
         if (male.isChecked()) {
             a = male.getText().toString();
@@ -204,6 +211,30 @@ public class EditProfile extends AppCompatActivity {
             return;
         }
 
+        if(TextUtils.isEmpty(houseno))
+        {
+            Toast.makeText(this, "Please Enter your House no.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(pinc))
+        {
+            Toast.makeText(this, "Please Enter Pincode.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(soci))
+        {
+            Toast.makeText(this, "Please Enter your society or area name.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(st))
+        {
+            Toast.makeText(this, "Please Enter your street name.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         db.child(mobno).child("age").setValue(age1)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -224,6 +255,18 @@ public class EditProfile extends AppCompatActivity {
                         }
                     }
                 });
+
+        Address address = new Address(city,dist,houseno,pinc,soci,state1,st);
+
+        db.child(mobno).child("address").setValue(address).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful())
+                    System.out.println("Success");
+            }
+        });
+
+
     }
 
     private void selectAImage()
